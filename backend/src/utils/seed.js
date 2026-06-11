@@ -11,8 +11,7 @@ import Gallery from '../models/Gallery.js';
 import Statistic from '../models/Statistic.js';
 import Announcement from '../models/Announcement.js';
 
-const seed = async () => {
-  await connectDB();
+export const seed = async (shouldDisconnect = true) => {
   await Promise.all([
     User.deleteMany(),
     Event.deleteMany(),
@@ -412,10 +411,20 @@ const seed = async () => {
   });
 
   console.log(`Seeded database with ${team.length} team members`);
-  await mongoose.disconnect();
+  if (shouldDisconnect) {
+    await mongoose.disconnect();
+  }
 };
 
-seed().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+import { fileURLToPath } from 'url';
+const nodePath = fileURLToPath(import.meta.url);
+if (process.argv[1] && (process.argv[1] === nodePath || process.argv[1].endsWith('seed.js'))) {
+  const run = async () => {
+    await connectDB();
+    await seed(true);
+  };
+  run().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
