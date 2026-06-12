@@ -626,6 +626,11 @@ export default function Admin() {
                                 Branch: <span className="text-[var(--text-primary)]">{app.branch || 'N/A'}</span> | 
                                 Year: <span className="text-[var(--text-primary)]">{app.year || 'N/A'}</span>
                               </p>
+                              {app.password && (
+                                <p className="text-xs text-[var(--text-secondary)] mt-1">
+                                  Password: <span className="text-[var(--text-primary)] font-mono select-all">{app.password}</span>
+                                </p>
+                              )}
                             </div>
                             <div className="flex flex-col items-end gap-1.5">
                               <span className={`text-xs px-2.5 py-1 rounded-full border capitalize font-semibold ${

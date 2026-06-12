@@ -14,6 +14,7 @@ const recruitmentSchema = new mongoose.Schema(
       enum: ['technical', 'design', 'events', 'content', 'general'],
     },
     motivation: String,
+    password: { type: String },
     experience: String,
     portfolio: String,
     github: String,

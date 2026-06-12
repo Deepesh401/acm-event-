@@ -81,6 +81,7 @@ export default function Membership() {
       year: form.year,
       type: form.type,
       motivation: form.motivation,
+      password: form.password,
     }
 
     try {
