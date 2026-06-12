@@ -127,20 +127,12 @@ export default function Header() {
               Dashboard
             </Link>
           ) : (
-            <>
-              <Link
-                to="/membership?mode=signin"
-                className="hidden md:inline-flex px-4 py-2 border border-acm-blue/30 text-acm-blue text-sm font-semibold rounded-xl hover:bg-acm-blue/10 transition-colors"
-              >
-                Login
-              </Link>
-              <Link
-                to="/membership?mode=signup"
-                className="hidden md:inline-flex px-4 py-2 bg-acm-blue hover:bg-acm-blue-dark text-white text-sm font-semibold rounded-xl transition-colors shadow-md shadow-acm-blue/20"
-              >
-                Join ACM
-              </Link>
-            </>
+            <Link
+              to="/membership?mode=signup"
+              className="hidden md:inline-flex px-4 py-2 bg-acm-blue hover:bg-acm-blue-dark text-white text-sm font-semibold rounded-xl transition-colors shadow-md shadow-acm-blue/20"
+            >
+              Join ACM
+            </Link>
           )}
           <button
             className="xl:hidden p-2"
@@ -187,22 +179,13 @@ export default function Header() {
                     Dashboard
                   </Link>
                 ) : (
-                  <>
-                    <Link
-                      to="/membership?mode=signin"
-                      onClick={() => setOpen(false)}
-                      className="w-full text-center px-4 py-2.5 border border-acm-blue/30 text-acm-blue text-sm font-semibold rounded-xl hover:bg-acm-blue/10 transition-colors"
-                    >
-                      Login
-                    </Link>
-                    <Link
-                      to="/membership?mode=signup"
-                      onClick={() => setOpen(false)}
-                      className="w-full text-center px-4 py-2.5 bg-acm-blue text-white text-sm font-semibold rounded-xl hover:bg-acm-blue-dark transition-colors shadow-md"
-                    >
-                      Join ACM
-                    </Link>
-                  </>
+                  <Link
+                    to="/membership?mode=signup"
+                    onClick={() => setOpen(false)}
+                    className="w-full text-center px-4 py-2.5 bg-acm-blue text-white text-sm font-semibold rounded-xl hover:bg-acm-blue-dark transition-colors shadow-md"
+                  >
+                    Join ACM
+                  </Link>
                 )}
               </div>
             </nav>
